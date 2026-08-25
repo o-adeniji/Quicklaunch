@@ -1,0 +1,24 @@
+name: QuickLaunch CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Test Website
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download repository code
+        uses: actions/checkout@v4
+
+      - name: Make test executable
+        run: chmod +x tests/smoke-test.sh
+
+      - name: Run automated smoke test
+        run: ./tests/smoke-test.sh
