@@ -19,7 +19,7 @@ sleep 2
 
 HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080)
 
-if [ "$HTTP_STATUS" != "201" ]; then
+if [ "$HTTP_STATUS" != "200" ]; then
   echo "Test failed: website returned HTTP $HTTP_STATUS"
   exit 1
 fi
